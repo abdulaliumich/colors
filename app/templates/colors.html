@@ -9,6 +9,12 @@
   <center>
     <h1> Colors </h1>
   </center>
+  <h2> The following colors are available: </h2>
+  <ul>
+    {% for color in colors %}
+    <li> <font color = "{{color.color_name}}"> {{ color.color_name }}</font> </li>
+    {% endfor %}
+  </ul>
 
 </body>
 {% endblock %}
