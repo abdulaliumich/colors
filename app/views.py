@@ -1,4 +1,4 @@
-from app import app
+from app import app, models, db
 from flask import render_template
 
 @app.route('/')
@@ -9,4 +9,7 @@ def index():
 
 @app.route('/colors')
 def colors():
+    colors = models.Color.query.all()
+    color = models.Color.query.first()
+    print color
     return render_template('colors.html', title='Colors')
