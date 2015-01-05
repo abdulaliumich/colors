@@ -7,6 +7,25 @@
   <center>
     <h1>Log in</h1>
   </center>
+
+  <form name="create_account" method='POST'>
+    	{{ form.username.label }} {{ form.username }}
+
+    	{% for error in form.username.errors %}
+           <span style="color:red">{{error}}</span> <br>
+        {% endfor %} <br>
+
+        {{ form.password.label }} {{ form.password }}
+        {% for error in form.password.errors %}
+           <span style="color:red">{{error}}</span> <br>
+        {% endfor %} <br>
+        
+        <input type=submit value="Log in!" name="submit_button"><br>
+    </form>
+
+    {% if errorMessage %}
+    <span style="color:red">{{ errorMessage }}</span> <br>
+    {% endif %}
 </body>
 
 {% endblock %}

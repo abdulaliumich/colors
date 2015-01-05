@@ -6,6 +6,13 @@ def is_username_taken(form, field):
     	message="Username already taken"
     	raise ValidationError(message)
 
+def get_username(form, field):
+	user = User.query.filter_by(username=field.data).first()
+	if user is None:
+		raise ValidationError('Invalid username.')
+	return user
+
+
 class NewUserForm(Form):
     username = TextField('Username', [validators.Required(),
     	                              validators.Length(min=3, max=50),
@@ -22,3 +29,7 @@ class NewUserForm(Form):
     ])
     confirm = PasswordField('Please type in your password again')
     color = TextField('Type in your color of choice')
+
+class LoginForm(Form):
+	username = TextField('Username', [validators.Required(), get_username])
+	password = TextField ('Password', [validators.Required()])
