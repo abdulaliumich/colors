@@ -7,8 +7,14 @@
     <div>
       <a href = "/index">Home</a>
       <a href = "/colors">Colors</a>
-      <a href = "/login">Login</a>
-      <a href = "/create_account" style="float:right">Create Account</a>
+      <a href = "/create_account">Create Account</a>
+
+      {% if g.user.is_authenticated() %}
+          <a href = "{{ url_for('logout') }}" style="float:right">Log Out</a>
+          <center>Logged in as {{ g.user.username }} </center>
+      {% else %} 
+          <a href="{{ url_for('login') }}" style="float:right">Log In</a>
+      {% endif %}
     </div>
     <hr>
     {% block content %}{% endblock %}
