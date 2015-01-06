@@ -53,6 +53,9 @@ class User(db.Model):
         if self.colors.filter(Color.color_name == color.color_name).count() > 0:
             return True
         return False
+
+    def get_color(self):
+        return self.colors[0].color_name
     
     def __repr__(self):
         return '<User %r>' % self.username

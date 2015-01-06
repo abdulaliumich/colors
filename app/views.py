@@ -50,7 +50,8 @@ def login():
             #doing username/password check here because i don't know how to do it in wtforms
         login_user(user)
         g.user = current_user
-        return redirect(url_for('index'))
+        user_color = user.get_color()
+        return redirect(url_for(user_color))
     return render_template('login.html', form=form)
 
     return render_template('login.html')
@@ -63,4 +64,29 @@ def logout():
 @lm.user_loader
 def load_user(username):
     return User.query.get(username)
+
+@app.route('/blue')
+def blue():
+    return render_template('colors/blue.html')
+
+@app.route('/red')
+def red():
+    return render_template('colors/red.html')
+
+@app.route('/green')
+def green():
+    return render_template('colors/green.html')
+
+@app.route('/yellow')
+def yellow():
+    return render_template('colors/yellow.html')
+
+@app.route('/orange')
+def orange():
+    return render_template('colors/orange.html')
+
+@app.route('/purple')
+def purple():
+    return render_template('colors/purple.html')
+
     

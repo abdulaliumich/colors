@@ -32,4 +32,4 @@ class NewUserForm(Form):
 
 class LoginForm(Form):
 	username = TextField('Username', [validators.Required(), get_username])
-	password = TextField ('Password', [validators.Required()])
+	password = PasswordField ('Password', [validators.Required()])
