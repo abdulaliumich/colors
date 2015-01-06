@@ -9,9 +9,11 @@ UserColors = db.Table ('UserColors',
 
 class Color(db.Model):
     color_name = db.Column(db.String(30), primary_key = True)
+    color_font = db.Column(db.String(30), unique = True)
     
-    def __init__(self, color_name):
+    def __init__(self, color_name, color_font):
         self.color_name = color_name
+        self.color_font = color_font
     
     def __repr__(self):
         return '<Color %r>' % self.color_name
@@ -56,6 +58,9 @@ class User(db.Model):
 
     def get_color(self):
         return self.colors[0].color_name
+
+    def get_color_font(self):
+        return self.colors[0].color_font
     
     def __repr__(self):
         return '<User %r>' % self.username

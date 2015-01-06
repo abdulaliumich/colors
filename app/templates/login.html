@@ -8,6 +8,10 @@
     <h1>Log in</h1>
   </center>
 
+  {% if message %}
+  <h4>{{ message }}</h4>
+  {% endif %}
+
   <form name="create_account" method='POST'>
     	{{ form.username.label }} {{ form.username }}
 

@@ -10,11 +10,15 @@
     <h1> Colors </h1>
   </center>
   <h2> The following colors are available: </h2>
-  <ul>
     {% for color in colors %}
-    <li> <font color = "{{color.color_name}}"> {{ color.color_name }}</font> </li>
+      <h3> <font color="{{ color.color_font }}"> {{ color.color_name }} </h3>
     {% endfor %}
-  </ul>
+
+  {% if user_color %}
+    <h2> <font color="black">Your color is:</font> <a href = "{{ url_for(user_color) }}" style = "color:{{ user_color_font }}">{{ user_color }}</a>
+  {% else %}
+    <h2> <font color="black">Create an account to join one of the teams!</font> </h2>
+  {% endif %}
 
 </body>
 {% endblock %}

@@ -3,12 +3,12 @@ from app import db, models
 
 print "populating tables"
 
-blue = models.Color('blue')
-red = models.Color('red')
-green = models.Color('green')
-yellow = models.Color('yellow')
-orange = models.Color('orange')
-purple = models.Color('purple')
+blue = models.Color('blue', 'blue')
+red = models.Color('red', 'red')
+green = models.Color('green', 'green')
+yellow = models.Color('yellow', 'gold')
+orange = models.Color('orange', 'orange')
+purple = models.Color('purple', 'purple')
 
 db.session.add(blue)
 db.session.add(red)
